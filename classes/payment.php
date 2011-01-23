@@ -27,8 +27,8 @@ class Payment {
 	
 	final private function __clone() { }
 	
-	public function process() {
-		return self::$driver->process();
+	public function process($data = NULL) {
+		return self::$driver->process($data);
 	}
 	
 	public function update_status() {

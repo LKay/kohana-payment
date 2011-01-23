@@ -17,4 +17,17 @@ return array(
 			'fail'    => 'welcome/fail',
 		),
 	),
+	/*
+	'driver' => 'dotpay',
+	// Additional config for chosen driver ie. DotPay
+	'config' => array(
+		'id' => 12345,
+		'PIN' => '0123456789abcdef',
+		// actions in yours application to process payment data
+		'actions' => array(
+			'return' => 'welcome/return',
+			'status' => 'welcome/status',
+		),
+	),
+	*/
 );
