@@ -4,9 +4,8 @@
  * 
  * W ustawieniach punktu płatności trzeba ustawić następujące adresy:
  * 
- * UrlOnline:   http://<domena>/index.php/payment_platnoscipl/online
- * UrlPoprawny: http://<domena>/index.php/payment_platnoscipl/success?pos_id=%posId%&session_id=%sessionId%
- * UrlBledny:   http://<domena>/index.php/payment_platnoscipl/fail?pos_id=%posId%&session_id=%sessionId%&error=%error%
+ * URL:   http://<domena>/index.php/payment_dotpay/return
+ * URLC: http://<domena>/index.php/payment_dotpay/status
  *
  */
 
@@ -121,10 +120,7 @@ class Payment_Driver_Dotpay extends Payment_Driver {
 		return FALSE;
 	}
 
-	public function set_actions($online, $success = NULL, $fail = NULL) {
-		if (is_array($online)) {
-			list($online, $success, $fail) = $online;
-		}
+	public function set_actions($online, $success, $fail) {
 		$this->_actions['online']  = $online;
 		$this->_actions['success'] = $success;
 		$this->_actions['fail']    = $fail;

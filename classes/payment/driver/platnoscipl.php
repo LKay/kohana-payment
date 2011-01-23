@@ -133,18 +133,12 @@ class Payment_Driver_Platnoscipl extends Payment_Driver {
 	}
 	
 	public function set_format($format) {
-		if (is_array($format)) {
-			list($format) = $format;
-		}
 		if (in_array($format, array(self::PAYMENT_FORMAT_XML,self::PAYMENT_FORMAT_TXT))) {
 			$this->_format = $format;
 		}
 	}
 	
 	public function set_codepage($codepage) {
-		if (is_array($codepage)) {
-			list($codepage) = $codepage;
-		}
 		if (in_array($codepage, array(self::PAYMENT_CODE_UTF,self::PAYMENT_CODE_ISO,self::PAYMENT_CODE_WIN))) {
 			$this->_codepage = $codepage;
 		}
@@ -166,20 +160,14 @@ class Payment_Driver_Platnoscipl extends Payment_Driver {
 		return FALSE;
 	}
 	
-	public function set_pos($pos_id, $pos_auth_key = NULL, $key = NULL, $key2 = NULL) {
-		if (is_array($pos_id)) {
-			list($pos_id, $pos_auth_key, $key, $key2) = $pos_id;
-		}
+	public function set_pos($pos_id, $pos_auth_key, $key, $key2) {
 		$this->_pos_data['pos_id'] = $pos_id;
 		$this->_pos_data['pos_auth_key'] = $pos_auth_key;
 		$this->_pos_data['key'] = $key;
 		$this->_pos_data['key2'] = $key2;
 	}
 
-	public function set_actions($online, $success = NULL, $fail = NULL) {
-		if (is_array($online)) {
-			list($online, $success, $fail) = $online;
-		}
+	public function set_actions($online, $success, $fail) {
 		$this->_actions['online']  = $online;
 		$this->_actions['success'] = $success;
 		$this->_actions['fail']    = $fail;
