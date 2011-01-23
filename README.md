@@ -1,1 +1,4 @@
-Driver for Platnosci.pl included
+Drivers included:
+
+* Platnosci.pl
+* DotPay
