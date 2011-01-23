@@ -81,7 +81,7 @@ class Payment_Driver_Platnoscipl extends Payment_Driver {
 		$this->_fields_required['client_ip'] = Request::$client_ip;
 	}
 	
-	public function process() {
+	public function process($only_fields = FALSE) {
 		if (empty($this->_fields_required['pos_id']) && empty($this->_fields_required['pos_auth_key'])) {
 			$this->_set_active_pos();		
 		}
@@ -121,14 +121,19 @@ class Payment_Driver_Platnoscipl extends Payment_Driver {
 		$fields['sig'] = $this->_get_sig($data);
 		unset($fields['key']);
 		
-		$form = Form::open(self::PAYMENT_URL . $this->_codepage . '/' . self::PAYMENT_NEW, array('method' => 'post', 'name' => 'platnoscipl'));
+		if (!$only_fields) {
+			$form = Form::open(self::PAYMENT_URL . $this->_codepage . '/' . self::PAYMENT_NEW, array('method' => 'post', 'name' => 'platnoscipl'));
+		}
 		foreach ($fields as $key => $value) {
 			if (!empty($value)) {
 				$form .= Form::hidden($key, $value);
 			}
 		}
-		$form .= Form::close();
-		$form .= '<script type="text/javascript">document.platnoscipl.submit();</script>';
+
+		if (!$only_fields) {
+			$form .= Form::close();
+			$form .= '<script type="text/javascript">document.platnoscipl.submit();</script>';
+		}
 		return $form;
 	}
 	

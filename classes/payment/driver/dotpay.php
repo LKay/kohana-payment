@@ -4,7 +4,7 @@
  * 
  * W ustawieniach punktu płatności trzeba ustawić następujące adresy:
  * 
- * URL:   http://<domena>/index.php/payment_dotpay/return
+ * URL:  http://<domena>/index.php/payment_dotpay/return
  * URLC: http://<domena>/index.php/payment_dotpay/status
  *
  */
@@ -12,20 +12,6 @@
 class Payment_Driver_Dotpay extends Payment_Driver {
 	
 	const PAYMENT_URL     = 'https://ssl.dotpay.pl/';
-	const PAYMENT_NEW     = 'NewPayment';
-	const PAYMENT_GET     = 'Payment/get';
-	const PAYMENT_CONFIRM = 'Payment/confirm';
-	const PAYMENT_CANCEL  = 'Payment/cancel';
-	
-	const PAYMENT_CODE_UTF = 'UTF';
-	const PAYMENT_CODE_ISO = 'ISO';
-	const PAYMENT_CODE_WIN = 'WIN';
-
-	const PAYMENT_FORMAT_XML = 'xml';
-	const PAYMENT_FORMAT_TXT = 'txt';
-	
-	protected $_codepage = NULL;
-	protected $_format   = NULL;
 	
 	protected $_pos_data = array(
 		'id'  => NULL,
@@ -71,9 +57,6 @@ class Payment_Driver_Dotpay extends Payment_Driver {
 	);
 	
 	public function __construct($config = NULL) {
-		$this->_codepage = self::PAYMENT_CODE_UTF;
-		$this->_format   = self::PAYMENT_FORMAT_XML;
-		
 		$this->_actions = Arr::overwrite($this->_actions, Arr::get($config, 'actions', array()));
 		$this->_pos_data = Arr::overwrite($this->_pos_data, $config);
 		
