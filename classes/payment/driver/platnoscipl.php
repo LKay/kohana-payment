@@ -131,6 +131,7 @@ class Payment_Driver_Platnoscipl extends Payment_Driver {
 		}
 
 		if (!$only_fields) {
+			$form .= Form::button('platnosci', __("Przejdź do Płatności.pl"), array('type' => 'submit'));
 			$form .= Form::close();
 			$form .= '<script type="text/javascript">document.platnoscipl.submit();</script>';
 		}
