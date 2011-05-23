@@ -4,8 +4,8 @@
  * 
  * W ustawieniach punktu płatności trzeba ustawić następujące adresy:
  * 
- * URL:  http://<domena>/index.php/payment_dotpay/return
- * URLC: http://<domena>/index.php/payment_dotpay/status
+ * URL:  http://<domena>/index.php/payment/return
+ * URLC: http://<domena>/index.php/payment/status
  *
  */
 
