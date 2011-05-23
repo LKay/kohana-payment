@@ -4,8 +4,8 @@
  * 
  * W ustawieniach punktu płatności trzeba ustawić następujące adresy:
  * 
- * URL:  http://<domena>/index.php/payment_dotpay/return
- * URLC: http://<domena>/index.php/payment_dotpay/status
+ * URL:  http://<domena>/index.php/payment/return
+ * URLC: http://<domena>/index.php/payment/status
  *
  */
 
@@ -86,6 +86,7 @@ class Payment_Driver_Dotpay extends Payment_Driver {
 		}
 		
 		if (!$only_fields) {
+			$form .= Form::button('platnosci', __("Przejdź do Dotpay.pl"), array('type' => 'submit'));
 			$form .= Form::close();
 			$form .= '<script type="text/javascript">document.dotpay.submit();</script>';
 		}

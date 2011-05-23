@@ -45,7 +45,7 @@ class Payment {
 	
 	public function __call($name, $args) {
 		if (method_exists(self::$driver,$name)) {
-			return call_user_func_array(array(self::$driver, $name), $args));
+			return call_user_func_array(array(self::$driver, $name), $args);
 		}
 		throw new Payment_Exception('Method :method() does not exists in driver class :driver',array(
 			':method' => $name,

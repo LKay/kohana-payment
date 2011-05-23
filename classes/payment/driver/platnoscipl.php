@@ -4,9 +4,9 @@
  * 
  * W ustawieniach punktu płatności trzeba ustawić następujące adresy:
  * 
- * UrlOnline:   http://<domena>/index.php/payment_platnoscipl/online
- * UrlPoprawny: http://<domena>/index.php/payment_platnoscipl/success?pos_id=%posId%&session_id=%sessionId%
- * UrlBledny:   http://<domena>/index.php/payment_platnoscipl/fail?pos_id=%posId%&session_id=%sessionId%&error=%error%
+ * UrlOnline:   http://<domena>/index.php/payment/online
+ * UrlPoprawny: http://<domena>/index.php/payment/success?pos_id=%posId%&session_id=%sessionId%
+ * UrlBledny:   http://<domena>/index.php/payment/fail?pos_id=%posId%&session_id=%sessionId%&error=%error%
  *
  */
 
@@ -131,6 +131,7 @@ class Payment_Driver_Platnoscipl extends Payment_Driver {
 		}
 
 		if (!$only_fields) {
+			$form .= Form::button('platnosci', __("Przejdź do Płatności.pl"), array('type' => 'submit'));
 			$form .= Form::close();
 			$form .= '<script type="text/javascript">document.platnoscipl.submit();</script>';
 		}
